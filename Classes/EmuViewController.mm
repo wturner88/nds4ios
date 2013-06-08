@@ -74,6 +74,11 @@ const float textureVert[] =
     
 }
 
+typedef enum : NSInteger {
+    RSTButtonPositionTop = 0,
+    RSTButtonPositionBottom = 1,
+} RSTButtonPosition;
+
 @property (nonatomic,strong) UILabel* fpsLabel;
 @property (nonatomic,strong) NSString* documentsPath;
 @property (nonatomic,strong) NSString* rom;
@@ -127,6 +132,10 @@ const float textureVert[] =
     [self.view addSubview:self.fpsLabel];
     
     [self addButtons];
+    
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"buttonPosition"] == RSTButtonPositionBottom) {
+        [self shiftButtons:nil];
+    }
     
     [self initRom];
     
@@ -337,6 +346,14 @@ const float textureVert[] =
 
 - (void)shiftButtons:(id)sender
 {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"buttonPosition"] == RSTButtonPositionBottom) {
+        [[NSUserDefaults standardUserDefaults] setInteger:RSTButtonPositionTop forKey:@"buttonPosition"];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setInteger:RSTButtonPositionBottom forKey:@"buttonPosition"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self.buttonsArray makeObjectsPerformSelector:@selector(shift)];
 }
 
