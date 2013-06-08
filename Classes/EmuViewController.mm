@@ -236,15 +236,13 @@ typedef enum : NSInteger {
 - (void)updateDisplay
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         self.fpsLabel.text = [NSString stringWithFormat:@"FPS: %d",fps];
-        
-        glBindTexture(GL_TEXTURE_2D, texHandle);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 384, 0, GL_RGBA, GL_UNSIGNED_BYTE, &video.buffer);
-        
-        [self.glkView display];
-        
     });
+    
+    glBindTexture(GL_TEXTURE_2D, texHandle);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 384, 0, GL_RGBA, GL_UNSIGNED_BYTE, &video.buffer);
+    
+    [self.glkView display];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
