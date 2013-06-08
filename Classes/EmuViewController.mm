@@ -166,7 +166,9 @@ const float textureVert[] =
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:self.context];
     
-    self.glkView = [[GLKView alloc] initWithFrame:self.view.bounds context:self.context];//self.view.bounds
+    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, 480.0f); // Temporarily hardcoding 480 to keep aspect ratio the same for all non-iPad iOS Devices
+    
+    self.glkView = [[GLKView alloc] initWithFrame:frame context:self.context];
     self.glkView.delegate = self;
     [self.view insertSubview:self.glkView atIndex:0];
     

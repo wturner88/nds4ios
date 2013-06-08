@@ -7,6 +7,7 @@
 //
 
 #import "UIButton+CTM.h"
+#import "UIScreen+Widescreen.h"
 #import <objc/runtime.h>
 
 static char UIB_BUTTIN_ID;
@@ -67,10 +68,12 @@ static char UIB_BUTTIN_ID;
 
 - (void)shift
 {
+    BOOL isWidescreen = [[UIScreen mainScreen] isWidescreen];
+    
     if (self.center.y < 240.0f) {
-        self.center = CGPointMake(self.center.x, self.center.y + 240.0f);
+        self.center = CGPointMake(self.center.x, self.center.y + 240.0f + (88.0f * isWidescreen));
     } else {
-        self.center = CGPointMake(self.center.x, self.center.y - 240.0f);
+        self.center = CGPointMake(self.center.x, self.center.y - 240.0f - (88.0f * isWidescreen));
     }
 }
 
