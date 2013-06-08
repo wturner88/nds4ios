@@ -970,6 +970,7 @@
 					"-fvariable-expansion-in-unroller",
 					"-DCOMPRESS_MT",
 					"-DIOS",
+					"-DHAVE_LIBZ",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
