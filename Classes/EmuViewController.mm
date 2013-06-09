@@ -134,7 +134,7 @@ typedef enum : NSInteger {
     [self addButtons];
     
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"buttonPosition"] == RSTButtonPositionBottom) {
-        [self shiftButtons:nil];
+        [self.buttonsArray makeObjectsPerformSelector:@selector(shift)]; // Don't call shiftButtons: or else that'll switch the user's preference
     }
     
     [self initRom];
