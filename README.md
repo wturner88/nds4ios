@@ -57,7 +57,6 @@ To-do
 * Option to hide the onscreen controls entirely (in progress)
 * New gesture based D-Pad (not current button based) (in progress)
 * Use of cmake to generate Xcode project
-* Examine reports of input lag
 * Change buttons to allow for button sliding.
 * Much more.
 
