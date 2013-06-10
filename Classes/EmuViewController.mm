@@ -74,6 +74,11 @@ const float textureVert[] =
     
 }
 
+typedef enum : NSInteger {
+    RSTButtonPositionTop = 0,
+    RSTButtonPositionBottom = 1,
+} RSTButtonPosition;
+
 @property (nonatomic,strong) UILabel* fpsLabel;
 @property (nonatomic,strong) NSString* documentsPath;
 @property (nonatomic,strong) NSString* rom;
@@ -128,6 +133,10 @@ const float textureVert[] =
     
     [self addButtons];
     
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"buttonPosition"] == RSTButtonPositionBottom) {
+        [self.buttonsArray makeObjectsPerformSelector:@selector(shift)]; // Don't call shiftButtons: or else that'll switch the user's preference
+    }
+    
     [self initRom];
     
     [self performSelector:@selector(emuLoop) withObject:nil];
@@ -166,7 +175,9 @@ const float textureVert[] =
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [EAGLContext setCurrentContext:self.context];
     
-    self.glkView = [[GLKView alloc] initWithFrame:self.view.bounds context:self.context];//self.view.bounds
+    CGRect frame = CGRectMake(0, 0, self.view.bounds.size.width, 480.0f); // Temporarily hardcoding 480 to keep aspect ratio the same for all non-iPad iOS Devices
+    
+    self.glkView = [[GLKView alloc] initWithFrame:frame context:self.context];
     self.glkView.delegate = self;
     [self.view insertSubview:self.glkView atIndex:0];
     
@@ -225,15 +236,13 @@ const float textureVert[] =
 - (void)updateDisplay
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         self.fpsLabel.text = [NSString stringWithFormat:@"FPS: %d",fps];
-        
-        glBindTexture(GL_TEXTURE_2D, texHandle);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 384, 0, GL_RGBA, GL_UNSIGNED_BYTE, &video.buffer);
-        
-        [self.glkView display];
-        
     });
+    
+    glBindTexture(GL_TEXTURE_2D, texHandle);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 256, 384, 0, GL_RGBA, GL_UNSIGNED_BYTE, &video.buffer);
+    
+    [self.glkView display];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -335,6 +344,14 @@ const float textureVert[] =
 
 - (void)shiftButtons:(id)sender
 {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"buttonPosition"] == RSTButtonPositionBottom) {
+        [[NSUserDefaults standardUserDefaults] setInteger:RSTButtonPositionTop forKey:@"buttonPosition"];
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setInteger:RSTButtonPositionBottom forKey:@"buttonPosition"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self.buttonsArray makeObjectsPerformSelector:@selector(shift)];
 }
 
