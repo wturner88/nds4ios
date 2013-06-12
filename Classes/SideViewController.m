@@ -57,7 +57,9 @@
 
 - (IBAction)fileBrowser:(id)sender
 {
-    //nothing yet
+    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    [self.mm_drawerController setCenterViewController:navController withFullCloseAnimation:YES completion:nil];
 }
 
 - (IBAction)settings:(id)sender

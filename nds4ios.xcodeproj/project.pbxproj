@@ -122,6 +122,8 @@
 		D38CBCAF1745CF9C0074C554 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D38CBCAA1745CF9C0074C554 /* SettingsViewController.xib */; };
 		D38CBCB01745CF9C0074C554 /* SideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D38CBCAC1745CF9C0074C554 /* SideViewController.m */; };
 		D38CBCB11745CF9C0074C554 /* SideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D38CBCAD1745CF9C0074C554 /* SideViewController.xib */; };
+		DF8674E61768B13F000AB689 /* FileExplorerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8674E41768B13F000AB689 /* FileExplorerViewController.m */; };
+		DF8674E71768B13F000AB689 /* FileExplorerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF8674E51768B13F000AB689 /* FileExplorerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -331,6 +333,9 @@
 		D38CBCAB1745CF9C0074C554 /* SideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideViewController.h; path = Classes/SideViewController.h; sourceTree = "<group>"; };
 		D38CBCAC1745CF9C0074C554 /* SideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideViewController.m; path = Classes/SideViewController.m; sourceTree = "<group>"; };
 		D38CBCAD1745CF9C0074C554 /* SideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideViewController.xib; path = Classes/SideViewController.xib; sourceTree = "<group>"; };
+		DF8674E31768B13F000AB689 /* FileExplorerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileExplorerViewController.h; path = Classes/FileExplorerViewController.h; sourceTree = "<group>"; };
+		DF8674E41768B13F000AB689 /* FileExplorerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileExplorerViewController.m; path = Classes/FileExplorerViewController.m; sourceTree = "<group>"; };
+		DF8674E51768B13F000AB689 /* FileExplorerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FileExplorerViewController.xib; path = Classes/FileExplorerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +368,9 @@
 				CE34A128173F769200C51EA1 /* nullJit.h */,
 				CE2EE5F5173F66E300786468 /* AppDelegate.h */,
 				CE2EE5F6173F66E300786468 /* AppDelegate.m */,
+				DF8674E31768B13F000AB689 /* FileExplorerViewController.h */,
+				DF8674E41768B13F000AB689 /* FileExplorerViewController.m */,
+				DF8674E51768B13F000AB689 /* FileExplorerViewController.xib */,
 				CE2EE5F7173F66E300786468 /* emu.cpp */,
 				CE2EE5F8173F66E300786468 /* emu.h */,
 				D338B30117470D4000932C39 /* Roms List */,
@@ -782,6 +790,7 @@
 				D326847E17497DBC000D4ED6 /* nds4ios.png in Resources */,
 				D326847F17497DBC000D4ED6 /* nds4ios@2x.png in Resources */,
 				BF0E1D701763F9B800528BA5 /* Default-568h@2x.png in Resources */,
+				DF8674E71768B13F000AB689 /* FileExplorerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,6 +904,7 @@
 				D38CBCAE1745CF9C0074C554 /* SettingsViewController.m in Sources */,
 				D38CBCB01745CF9C0074C554 /* SideViewController.m in Sources */,
 				BF0E1D731763FA3D00528BA5 /* UIScreen+Widescreen.m in Sources */,
+				DF8674E61768B13F000AB689 /* FileExplorerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
