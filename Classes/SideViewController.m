@@ -14,6 +14,7 @@
 #import "SettingsViewController.h"
 #import "RomsViewController.h"
 #import "EmuViewController.h"
+#import "FileExplorerViewController.h"
 
 @interface SideViewController ()
 
@@ -57,8 +58,8 @@
 
 - (IBAction)fileBrowser:(id)sender
 {
-    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    FileExplorerViewController *filebrowserVC = [[FileExplorerViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:filebrowserVC];
     [self.mm_drawerController setCenterViewController:navController withFullCloseAnimation:YES completion:nil];
 }
 
